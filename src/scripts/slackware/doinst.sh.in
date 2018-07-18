@@ -1,0 +1,13 @@
+#!/bin/bash -e
+
+# Add ARGoS lib path to /etc/ld.so.conf
+if ! grep -q "@CMAKE_INSTALL_PREFIX@/lib/argos3" /etc/ld.so.conf ; then
+    echo "@CMAKE_INSTALL_PREFIX@/lib/argos3" >> /etc/ld.so.conf
+fi
+sudo /sbin/ldconfig
+
+# Update MIME type database
+sudo /usr/bin/update-mime-database "@CMAKE_INSTALL_PREFIX@/share/mime/" 2> /dev/null
+
+# Update desktop entry database
+[ -x /usr/bin/update-desktop-database ] && sudo /usr/bin/update-desktop-database -q 2> /dev/null

@@ -1,0 +1,6 @@
+add_subdirectory(entities)
+add_subdirectory(media)
+add_subdirectory(actuators)
+add_subdirectory(sensors)
+add_subdirectory(physics_engines)
+add_subdirectory(visualizations)
